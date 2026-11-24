@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Отправка документов · Контур.КЦР</title>
+  <script>
+    history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    document.documentElement.classList.add("is-entering");
+  </script>
+  <link rel="stylesheet" href="shell.css">
+  <link rel="stylesheet" href="holiday.css">
+  <link rel="stylesheet" href="loader.css">
+  <link rel="preload" href="assets/holiday/snowman.png" as="image">
+  <script src="shell.js" defer></script>
+  <script src="holiday.js" defer></script>
+  <script src="vendor/react-confetti-core.js" defer></script>
+  <script src="toast.js" defer></script>
+</head>
+<body class="test-shell holiday-page">
+  <header class="shell-header">
+    <div class="shell-container shell-header-row">
+      <img class="holiday-ornament" src="assets/holiday/ornament.png" alt="" width="48" height="43" data-holiday>
+      <a class="shell-brand" href="#requests" aria-label="Контур Удостоверяющий центр">
+        <span aria-hidden="true">@#</span><span aria-hidden="true">Удостоверяющий центр</span>
+      </a>
+
+      <form class="shell-search" role="search" novalidate>
+        <img src="assets/search.svg" alt="" width="16" height="16">
+        <input id="request-search" type="search" name="query" placeholder="Найти заявку"
+          aria-label="Найти заявку" autocomplete="off">
+        <button class="shell-search-clear" type="button" aria-label="Очистить поиск" hidden>
+          <img src="assets/clear.svg" alt="" width="16" height="16">
+        </button>
+        <div id="search-error" class="shell-search-error" role="alert" hidden>
+          <img src="assets/pointer.svg" alt="" width="16" height="8">
+          Введите минимум 2 символа
+        </div>
+      </form>
+
+      <div class="shell-actions">
+        <button class="shell-header-button holiday-summary" type="button" data-shell-action="year-summary" data-holiday>
+          <img class="holiday-summary-art" src="assets/holiday/gift-decoration.svg" alt="" width="195" height="32">
+          <img class="holiday-summary-art" src="assets/holiday/gift-snow.svg" alt="" width="195" height="32">
+          <img src="assets/holiday/gift.svg" alt="" width="20" height="20">
+          <span>Ваш 2026 в&nbsp;Контур.КЦР</span>
+        </button>
+        <img class="holiday-divider" src="assets/divider.svg" alt="" width="16" height="32" data-holiday>
+        <div class="shell-dropdown shell-organization">
+          <button class="shell-header-button shell-organization-button" type="button"
+            aria-labelledby="organization-label organization-number" aria-controls="organization-options"
+            aria-expanded="false" data-shell-menu>
+            <span id="organization-label" class="shell-sr-only">Организация</span>
+            <span>#<span id="organization-number">1000732</span></span>
+            <img src="assets/chevron.svg" alt="" width="16" height="16">
+          </button>
+          <div id="organization-options" class="shell-popover shell-organization-options" hidden>
+            <button class="shell-option shell-organization-option" type="button" data-organization="1000732" aria-pressed="true">
+              <span>1000732</span><span>СПБ ГУП Пассажиравтотранс</span>
+            </button>
+            <button class="shell-option shell-organization-option" type="button" data-organization="2001198" aria-pressed="false">
+              <span>2001198</span><span>ООО «Ромашка»</span>
+            </button>
+            <button class="shell-option shell-organization-option" type="button" data-organization="2001345" aria-pressed="false">
+              <span>2001345</span><span title="ООО «Агентство по стратегическому планированию инфраструктуры сетей»">ООО «Агентство по стратегическому планированию инфраструктуры сетей»</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="shell-hint-anchor">
+          <button class="shell-header-button shell-icon-button" type="button"
+            aria-label="Управление сотрудниками" data-shell-action="employees">
+            <img src="assets/employees.svg" alt="" width="20" height="20">
+          </button>
+          <span class="shell-hint" aria-hidden="true">Управление сотрудниками</span>
+        </div>
+        <div class="shell-hint-anchor">
+          <button class="shell-header-button shell-icon-button" type="button"
+            aria-label="Доступ и баланс" data-shell-action="balance">
+            <img src="assets/wallet.svg" alt="" width="20" height="20">
+          </button>
+          <span class="shell-hint" aria-hidden="true">Доступ и баланс</span>
+        </div>
+        <div class="shell-hint-anchor">
+          <button class="shell-header-button shell-icon-button" type="button"
+            aria-label="Настройки сервиса" data-shell-action="settings">
+            <img src="assets/holiday/snowflake.svg" alt="" width="20" height="20" data-holiday>
+            <img src="assets/settings.svg" alt="" width="20" height="20" data-standard hidden>
+          </button>
+          <span class="shell-hint" aria-hidden="true">Настройки сервиса</span>
+        </div>
+
+        <div class="shell-user">
+          <div class="shell-dropdown">
+            <button class="shell-header-button shell-account-button" type="button"
+              aria-controls="account-options" aria-expanded="false" data-shell-menu>
+              <img src="assets/holiday/santa-hat.svg" alt="" width="24" height="24" data-holiday>
+              <img class="shell-avatar" src="assets/anakin.webp" alt="" width="16" height="16" data-standard hidden>
+              <span>Иванов Иван Иванович</span>
+            </button>
+            <div id="account-options" class="shell-popover shell-account-options" hidden>
+              <button class="shell-option" type="button" data-shell-action="account">Кабинет клиента Контура</button>
+              <button class="shell-option" type="button" data-shell-action="certificates">Сертификаты</button>
+              <button class="shell-option" type="button" data-shell-action="payments">Оплата сервисов</button>
+            </div>
+          </div>
+
+          <img class="shell-divider" src="assets/divider.svg" alt="" width="16" height="32">
+          <button class="shell-header-button shell-logout" type="button" data-shell-action="logout">Выйти</button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="shell-navigation" aria-label="Разделы">
+      <div class="shell-container shell-navigation-inner">
+        <a href="#requests" data-section="requests">Заявки в работе</a>
+        <a href="#archive" data-section="archive">Архив</a>
+        <a href="#documents" data-section="documents" aria-current="page">Отправка документов</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="sandbox" class="shell-content" aria-label="Рабочая область"
+    data-section="documents" data-organization="1000732">
+    <div class="entry-loader" role="status" aria-live="polite">
+      <div class="loader-art" aria-hidden="true">
+        <img src="assets/holiday/loader.svg" alt="" width="144" height="147">
+      </div>
+      <span>Входим в сервис…</span>
+    </div>
+
+    <div class="page-section shell-container" data-page="documents">
+      <h1>Отправка документов</h1>
+      <div class="submission">
+        <div class="submission-banners">
+          <article class="submission-banner deadline-banner">
+            <div class="deadline-art" aria-hidden="true" data-holiday>
+              <img class="deadline-snow" src="assets/holiday/deadline-snow.svg" alt="" width="300" height="256">
+              <img class="deadline-snowdrifts" src="assets/holiday/snowdrifts.svg" alt="" width="300" height="52">
+              <img class="deadline-garland" src="assets/holiday/garland.svg" alt="" width="226" height="31">
+            </div>
+            <div class="banner-summary">
+              <div class="deadline-heading">
+                <h2>60 дней</h2>
+                <span class="deadline-clock"><img src="assets/holiday/clock.svg" alt="" width="20" height="20"></span>
+              </div>
+              <div>
+                <p class="banner-description">чтобы отправить<br>оригиналы&nbsp;документов</p>
+                <p class="banner-caption">за период с 1 октября по 31 декабря</p>
+              </div>
+            </div>
+            <a class="banner-button doxy-button" href="https://docsi.kontur.ru/" target="_blank" rel="noopener">
+              В Контур.Докси
+              <span class="banner-icon"><img src="assets/holiday/arrow.svg" alt="" width="12" height="11"></span>
+            </a>
+          </article>
+
+          <article class="submission-banner new-year-banner">
+            <img class="new-year-art" src="assets/holiday/countdown.svg" alt="" width="240" height="256">
+            <div class="new-year-content">
+              <div class="banner-summary">
+                <h2>38&nbsp;дней</h2>
+                <div class="countdown-description">
+                  <p class="banner-description">осталось до&nbsp;Нового года</p>
+                  <p class="banner-caption">~ Придумать что сюда можно написать будет ~</p>
+                </div>
+              </div>
+              <button class="banner-button toast-button" type="button">
+                <svg class="toast-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <defs>
+                    <path id="toast-glass-outline" d="M 1.95 6.15 C 2.6536 6.15 3.3571 5.7072 3.549 3.69 L 3.9 0.432 C 3.9 0.144 3.756 0 3.468 0 L 0.432 0 C 0.144 0 0 0.144 0 0.432 L 0.351 3.69 C 0.5429 5.7072 1.2464 6.15 1.95 6.15 Z M 1.95 6.15 L 1.95 9 M 0.25 9 L 3.65 9"/>
+                  </defs>
+                  <g data-toast-part="leftGlass" transform="translate(1.8167 2.769) rotate(9.6905)">
+                    <use href="#toast-glass-outline" x="1.5" y="1.5" fill="none" stroke="black" stroke-opacity=".88" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle data-toast-part="leftBubble" cx="3.35" cy="4.575" r=".53" fill="black" fill-opacity=".88"/>
+                  </g>
+                  <g data-toast-part="rightGlass" transform="translate(7.3818 3.9307) rotate(-9.6905)">
+                    <use href="#toast-glass-outline" x="1.5" y="1.5" fill="none" stroke="black" stroke-opacity=".88" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle data-toast-part="rightBubble" cx="3.55" cy="4.863" r=".53" fill="black" fill-opacity=".88"/>
+                  </g>
+                  <g data-toast-part="leftRay" transform="translate(5.247 0.8469)">
+                    <path d="M 0 0 L 0.88 1.136" transform="translate(.625 .625)" fill="none" stroke="black" stroke-opacity=".88" stroke-linecap="round"/>
+                  </g>
+                  <g data-toast-part="rightRay" transform="translate(8.623 0.8469)">
+                    <path d="M 0.88 0 L 0 1.136" transform="translate(.625 .625)" fill="none" stroke="black" stroke-opacity=".88" stroke-linecap="round"/>
+                  </g>
+                </svg>
+                Поднять бокалы
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <section class="submission-instructions" aria-label="Как отправить документы">
+          <div class="instructions-group">
+            <p>По&nbsp;окончании каждого квартала в&nbsp;течение 10 рабочих дней организация должна передать в&nbsp;удостоверяющий центр Контура бумажные оригиналы:</p>
+            <ul class="required-documents" role="list">
+              <li><span>заявлений на&nbsp;выдачу сертификата ЭП</span></li>
+              <li><span>листов ознакомления с&nbsp;данными сертификата<br class="desktop-break"> (если сертификат выпущен с&nbsp;2026 года)</span></li>
+              <li><span>заявлений на&nbsp;прекращение действия сертификата</span></li>
+              <li><span>заявлений на&nbsp;смену номера мобильного телефона</span></li>
+            </ul>
+            <p>Эта обязанность закреплена в <a href="https://ca.kontur.ru/kcr" target="_blank" rel="noopener">порядке использования КЦР</a>.</p>
+            <p>Для передачи и отслеживания посылок используется сервис Контур.Докси. Подробнее в <a href="https://support.kontur.ru/kcr/42445-otpravka_originalov_dokumentov_v_uc" target="_blank" rel="noopener">инструкции</a>.</p>
+          </div>
+
+          <div class="instructions-group">
+            <p>Документы вместе с&nbsp;формированной описью следует отправить одним из&nbsp;способов:</p>
+            <p>Любой экспедиторской службой<br>
+              Информация для курьера:<br>
+              <span id="courier-address">620057, г.&nbsp;Екатеринбург, ул.&nbsp;Ульяновская, 13 А,<br>
+              тел: (343) 228-30-77, Галкин Михаил Сергеевич</span><span class="copy-control">
+                <button class="copy-button" type="button" data-copy="courier-address" aria-label="Скопировать адрес для курьера"><img src="assets/holiday/copy.svg" alt="" width="12" height="15"></button>
+                <span class="copy-feedback" role="status"></span>
+              </span>
+            </p>
+            <p>Почтой России<br>
+              <span id="postal-address">620091, Екатеринбург, а/я&nbsp;796</span><span class="copy-control">
+                <button class="copy-button" type="button" data-copy="postal-address" aria-label="Скопировать почтовый адрес"><img src="assets/holiday/copy.svg" alt="" width="12" height="15"></button>
+                <span class="copy-feedback" role="status"></span>
+              </span><br>
+              Для отслеживания статуса посылки рекомендуем отправлять документы заказным письмом
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="page-section shell-container" data-page="requests" hidden><h1>Заявки в работе</h1></div>
+    <div class="page-section shell-container" data-page="archive" hidden><h1>Архив</h1></div>
+  </main>
+
+  <footer class="shell-footer">
+    <div class="shell-container shell-footer-content">
+      <div class="footer-brand"><strong>СКБ Контур</strong><span>с 1988 года</span></div>
+      <div class="footer-actions">
+        <button class="holiday-toggle" type="button" role="switch" aria-checked="true">
+          <span class="toggle-track" aria-hidden="true"></span>
+          Новогоднее настроение
+        </button>
+        <a class="help-button" href="https://support.kontur.ru/kcr" target="_blank" rel="noopener" aria-label="Помощь">?</a>
+      </div>
+    </div>
+  </footer>
+  <canvas class="toast-confetti" aria-hidden="true" hidden></canvas>
+</body>
+</html>

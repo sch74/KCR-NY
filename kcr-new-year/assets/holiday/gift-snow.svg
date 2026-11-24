@@ -1,0 +1,41 @@
+<svg width="195" height="32" viewBox="0 0 195 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .snowflake { transform: translateY(var(--y)); }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .snowflake { animation: fall var(--fall) var(--fall-phase) linear infinite; }
+      .drifting { animation: drift var(--drift) var(--drift-phase) ease-in-out infinite; }
+    }
+
+    @keyframes fall {
+      from { transform: translateY(-2px); }
+      to { transform: translateY(34px); }
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateX(0); }
+      24% { transform: translateX(var(--first-sway)); }
+      69% { transform: translateX(var(--second-sway)); }
+    }
+  </style>
+  <g fill="white">
+    <g class="snowflake" style="--y:4.1999px; --fall:8.38s; --fall-phase:-1.444s">
+      <circle cx="8.2502" cy="0" r="0.8" class="drifting" style="--drift:4.26s; --drift-phase:-3.84s; --first-sway:-2.67px; --second-sway:2.41px"/>
+    </g>
+    <g class="snowflake" style="--y:9.675px; --fall:11.11s; --fall-phase:-3.605s">
+      <circle cx="28.675" cy="0" r="0.675" opacity="0.5" class="drifting" style="--drift:6.24s; --drift-phase:-0.85s; --first-sway:-3.13px; --second-sway:2.16px"/>
+    </g>
+    <g class="snowflake" style="--y:3.6502px; --fall:8.65s; --fall-phase:-1.358s">
+      <circle cx="75.7" cy="0" r="0.825"/>
+    </g>
+    <g class="snowflake" style="--y:28.7002px; --fall:7.94s; --fall-phase:-6.773s">
+      <circle cx="43.3999" cy="0" r="0.75" class="drifting" style="--drift:5.24s; --drift-phase:-1.60s; --first-sway:-2.50px; --second-sway:2.84px"/>
+    </g>
+    <g class="snowflake" style="--y:28.9998px; --fall:6.36s; --fall-phase:-5.478s">
+      <circle cx="132.7" cy="0" r="0.7" class="drifting" style="--drift:7.11s; --drift-phase:-1.76s; --first-sway:-1.81px; --second-sway:2.99px"/>
+    </g>
+    <g class="snowflake" style="--y:28.5998px; --fall:11.93s; --fall-phase:-10.138s">
+      <circle cx="178.2" cy="0" r="0.8"/>
+    </g>
+  </g>
+</svg>

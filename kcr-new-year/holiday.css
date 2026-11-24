@@ -1,0 +1,502 @@
+.holiday-page {
+  --holiday-red: #fe4c4c;
+  --holiday-pink: #ffebeb;
+  --holiday-control: #3d3d3d;
+  --holiday-secondary: #757575;
+}
+
+.holiday-page [hidden] {
+  display: none !important;
+}
+
+.holiday-page :is(button, a):focus-visible {
+  outline: 2px solid #747474;
+  outline-offset: 2px;
+}
+
+.holiday-page .shell-header-row {
+  position: relative;
+  gap: 0 20px;
+  align-items: start;
+}
+
+.holiday-page .shell-brand {
+  position: relative;
+  margin-block-start: 10px;
+  font-size: 23.66px;
+}
+
+.holiday-ornament {
+  position: absolute;
+  inset: 0 auto auto -59px;
+  pointer-events: none;
+}
+
+.holiday-page .shell-search {
+  gap: 4px;
+}
+
+.holiday-page :is(.shell-search, .shell-actions) {
+  margin-block-start: 11px;
+}
+
+.holiday-page .shell-actions {
+  --shell-action-gap: 0px;
+  margin-inline-end: 0;
+}
+
+.holiday-page .shell-organization-button {
+  gap: 4px;
+  padding-inline: 8px;
+}
+
+.holiday-page .shell-account-button {
+  gap: 2px;
+}
+
+.holiday-page .shell-logout {
+  inline-size: 54px;
+}
+
+.holiday-page .shell-navigation {
+  position: relative;
+  border-block-end: 0;
+}
+
+.holiday-page .shell-navigation a {
+  padding-block: 17px;
+}
+
+.holiday-page .shell-navigation::after {
+  position: absolute;
+  inset: 100% 0 auto;
+  block-size: 2px;
+  background: repeating-linear-gradient(150deg, var(--holiday-red) 0 3.03px, var(--holiday-pink) 3.03px 6.06px);
+  content: "";
+  pointer-events: none;
+}
+
+.holiday-page.is-standard .shell-navigation::after {
+  background: var(--shell-rule);
+}
+
+.shell-header .holiday-summary {
+  position: relative;
+  min-inline-size: 195px;
+  overflow: clip;
+  gap: 4px;
+  padding-inline: 8px;
+  background: var(--holiday-red);
+  color: white;
+}
+
+.shell-header .holiday-summary:is(:hover, :active) {
+  background: #ed3e3e;
+}
+
+.holiday-summary-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.holiday-page .shell-content {
+  position: relative;
+}
+
+.page-section {
+  padding-block: 40px;
+}
+
+.page-section h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.submission {
+  display: grid;
+  grid-template-columns: 852px 392px;
+  gap: 56px;
+  margin-block-start: 32px;
+}
+
+.submission-banners {
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+}
+
+.submission-banner {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.submission-banner :is(h2, p),
+.submission-instructions :is(p, ul) {
+  margin: 0;
+}
+
+.deadline-banner,
+.new-year-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding-block: 40px 32px;
+}
+
+.deadline-banner {
+  flex: 0 0 300px;
+  padding-inline: 24px;
+  background: var(--shell-ink);
+  color: white;
+}
+
+.deadline-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.deadline-art img {
+  position: absolute;
+  inset-inline-start: 0;
+  pointer-events: none;
+}
+
+.deadline-snow {
+  inset-block-start: 0;
+  z-index: -1;
+}
+
+.deadline-snowdrifts {
+  inset-block-end: 0;
+  z-index: -1;
+}
+
+.deadline-art .deadline-garland {
+  inset: 0 auto auto 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.banner-summary {
+  display: grid;
+  gap: 8px;
+  inline-size: 100%;
+}
+
+.deadline-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.deadline-clock {
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+  block-size: 24px;
+  margin-block-start: 4px;
+}
+
+.submission-banner h2 {
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.banner-description {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.banner-caption {
+  color: rgb(0 0 0 / 54%);
+}
+
+.deadline-banner .banner-caption {
+  color: rgb(255 255 255 / 54%);
+}
+
+.new-year-banner {
+  display: flex;
+  flex: 1 1 516px;
+  background: var(--holiday-pink);
+}
+
+.new-year-art {
+  display: block;
+  flex: none;
+}
+
+.new-year-content {
+  flex: 1;
+  min-inline-size: 0;
+  padding-inline: 32px;
+}
+
+.countdown-description {
+  display: grid;
+  gap: 2px;
+}
+
+.banner-button {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: white;
+  color: var(--shell-ink);
+  font: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.banner-button:hover {
+  background: #f4f4f4;
+}
+
+.doxy-button {
+  padding-inline-end: 8px;
+  gap: 8px;
+}
+
+.banner-icon {
+  display: grid;
+  place-items: center;
+  inline-size: 16px;
+  block-size: 16px;
+}
+
+.toast-button {
+  padding-inline-start: 8px;
+}
+
+.toast-button[aria-disabled="true"] {
+  background: white;
+  cursor: inherit;
+}
+
+.toast-icon {
+  flex: none;
+}
+
+.toast-icon [data-toast-part] {
+  transform-origin: 0 0;
+}
+
+.toast-confetti {
+  position: fixed;
+  z-index: 4;
+  inset: 0;
+  pointer-events: none;
+}
+
+.submission-instructions {
+  display: grid;
+  align-content: start;
+  gap: 30px;
+  color: var(--holiday-secondary);
+}
+
+.instructions-group {
+  display: grid;
+  gap: 10px;
+}
+
+.submission-instructions a {
+  color: inherit;
+  text-decoration-color: rgb(61 61 61 / 50%);
+  text-underline-offset: 2px;
+}
+
+.submission-instructions a:hover {
+  color: var(--shell-ink);
+}
+
+.required-documents {
+  display: grid;
+  padding: 0;
+  list-style: none;
+}
+
+.required-documents li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 4px;
+}
+
+.required-documents li::before {
+  content: "—";
+}
+
+.required-documents li span {
+  grid-column: 2;
+}
+
+.copy-control {
+  position: relative;
+  display: inline-grid;
+  vertical-align: top;
+}
+
+.copy-button {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 24px;
+  block-size: 20px;
+  padding: 0;
+  vertical-align: top;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.copy-button:is(:hover, :focus-visible) img {
+  filter: brightness(.29);
+}
+
+.copy-feedback {
+  position: absolute;
+  z-index: 3;
+  inset: auto auto calc(100% + 8px) 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.copy-feedback:not(:empty) {
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--holiday-control);
+  color: white;
+}
+
+.copy-feedback:not(:empty)::after {
+  position: absolute;
+  inset: 100% auto auto 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-block-start-color: var(--holiday-control);
+  content: "";
+}
+
+.holiday-page .shell-footer {
+  padding-block: 32px 24px;
+}
+
+.holiday-page .shell-footer-content,
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.holiday-page .shell-footer-content {
+  justify-content: space-between;
+  padding-inline: 0;
+  gap: 16px;
+  color: #adadad;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.footer-actions {
+  gap: 32px;
+}
+
+.holiday-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--shell-ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.toggle-track {
+  position: relative;
+  box-sizing: border-box;
+  inline-size: 32px;
+  block-size: 20px;
+  border: 1px solid rgb(0 0 0 / 16%);
+  border-radius: 20px;
+  background: white;
+}
+
+.toggle-track::after {
+  position: absolute;
+  inset: 2px auto auto 2px;
+  box-sizing: border-box;
+  inline-size: 14px;
+  block-size: 14px;
+  border: 1px solid rgb(0 0 0 / 16%);
+  border-radius: 50%;
+  background: white;
+  content: "";
+}
+
+.holiday-toggle[aria-checked="true"] .toggle-track {
+  background: var(--holiday-control);
+}
+
+.holiday-toggle[aria-checked="true"] .toggle-track::after {
+  inset-inline-start: 14px;
+  border-color: transparent;
+}
+
+.help-button {
+  display: grid;
+  place-items: center;
+  inline-size: 40px;
+  block-size: 40px;
+  border-radius: 50%;
+  background: var(--holiday-control);
+  color: white;
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.help-button:hover {
+  background: #292929;
+}
+
+@media (pointer: fine) {
+  /* Christmas Star & Snowman artwork by Sweezy Cursors. */
+  html:has(.holiday-page:not(.is-standard)) {
+    --christmas-cursor: url("assets/holiday/christmas-star.png") 2 3;
+    cursor: var(--christmas-cursor), auto;
+    overscroll-behavior-y: none;
+  }
+
+  .holiday-page:not(.is-standard) input {
+    cursor: var(--christmas-cursor), text;
+  }
+
+  .holiday-page:not(.is-standard) :is(a[href], button:enabled:not([aria-disabled="true"])) {
+    cursor: url("assets/holiday/snowman.png") 0 1, pointer;
+  }
+}
+
